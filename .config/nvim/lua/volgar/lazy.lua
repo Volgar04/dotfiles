@@ -94,7 +94,7 @@ return {
     opts = {
       options = {
         icons_enabled = false,
-        theme = 'tokyonight',
+        theme = 'auto',
         component_separators = '|',
         section_separators = '',
       },
@@ -176,8 +176,9 @@ return {
 
   -- Theme
   {
-    "folke/tokyonight.nvim",
+    'catppuccin/nvim',
     lazy = false,
     priority = 1000,
+    name = 'catppuccin',
   },
 }

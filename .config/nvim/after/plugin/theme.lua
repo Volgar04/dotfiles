@@ -1,4 +1,5 @@
-require('tokyonight').setup {
-  style = "night",
-}
-require('tokyonight').load()
+require('catppuccin').setup({
+  flavour = 'macchiato',
+})
+
+vim.cmd.colorscheme 'catppuccin'
