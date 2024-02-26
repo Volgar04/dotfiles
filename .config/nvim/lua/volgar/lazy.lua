@@ -15,6 +15,9 @@ return {
   -- Startup time infos
   'dstein64/vim-startuptime',
 
+  -- Statusline
+  'nvim-lualine/lualine.nvim',
+
   -- Nvim-autopairs
   {
     "windwp/nvim-autopairs",
@@ -86,19 +89,6 @@ return {
       "nvim-telescope/telescope.nvim",
     },
     config = true
-  },
-
-  -- Lualine
-  {
-    'nvim-lualine/lualine.nvim',
-    opts = {
-      options = {
-        icons_enabled = false,
-        theme = 'auto',
-        component_separators = '|',
-        section_separators = '',
-      },
-    },
   },
 
   -- File explorer

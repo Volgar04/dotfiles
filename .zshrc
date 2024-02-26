@@ -149,4 +149,4 @@ export DB_EASYEAT_USER="postgres"
 export DB_EASYEAT_PASSWORD="postgres"
 export DB_EASYEAT_SSLMODE="disable"
 
-eval "$(zoxide init zsh)"
+eval "$(zoxide init --cmd cd zsh)"
