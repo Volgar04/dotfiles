@@ -62,6 +62,16 @@ return {
     },
   },
 
+  -- Flutter
+  {
+    'akinsho/flutter-tools.nvim',
+    lazy = false,
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+    },
+    config = true,
+  },
+
   -- Showing diagnostics, references, telescope results, quickfix ...
   {
     'folke/trouble.nvim',

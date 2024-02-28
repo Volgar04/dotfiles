@@ -6,7 +6,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:/Users/nicolasmartin/Documents/dev/flutter/bin:$HOME/.pub-cache/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$HOME/go/bin:/Users/nicolasmartin/Documents/dev/flutter/bin:$HOME/.pub-cache/bin:$PATH
 
 # Android Emulator
 export ANDROID_SDK_ROOT=~/Library/Android/sdk

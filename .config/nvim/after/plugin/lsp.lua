@@ -118,6 +118,23 @@ mason_lspconfig.setup_handlers {
   end,
 }
 
+local dartExcludedFolders = {
+  vim.fn.expand("$HOME/AppData/Local/Pub/Cache"),
+  vim.fn.expand("$HOME/.pub-cache"),
+  vim.fn.expand("/opt/homebrew/"),
+  vim.fn.expand("$HOME/tools/flutter/"),
+}
+
+require('flutter-tools').setup {
+  lsp = {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    settings = {
+      analysisExcludedFolders = dartExcludedFolders,
+    },
+  },
+}
+
 -- Switch for controlling whether you want autoformatting.
 --  Use :KickstartFormatToggle to toggle autoformatting on or off
 local format_is_enabled = true

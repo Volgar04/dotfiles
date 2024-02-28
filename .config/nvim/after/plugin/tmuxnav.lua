@@ -6,6 +6,6 @@ require 'nvim-tmux-navigation'.setup {
     up = "<C-k>",
     right = "<C-l>",
     last_active = "<C-\\>",
-    next = "<C-Space>",
+    next = "<C-,>",
   }
 }
