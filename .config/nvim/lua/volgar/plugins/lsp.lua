@@ -96,10 +96,18 @@ return { -- LSP Configuration & Plugins
 		--        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
 		local servers = {
 			clangd = {},
-			gopls = {},
+			gopls = { filetypes = { "go", "gomod", "gowork", "gotmpl", "templ" } },
+			templ = {},
+			cmake = {},
 			pyright = {},
 			rust_analyzer = {},
 			tsserver = {},
+			html = { filetypes = { "html", "templ" } },
+			htmx = { filetypes = { "html", "templ" } },
+			tailwindcss = {
+				filetypes = { "templ", "astro", "javascript", "typescript", "react" },
+				init_options = { userLanguages = { templ = "templ" } },
+			},
 
 			lua_ls = {
 				-- cmd = {...},
@@ -142,6 +150,7 @@ return { -- LSP Configuration & Plugins
 		local ensure_installed = vim.tbl_keys(servers or {})
 		vim.list_extend(ensure_installed, {
 			"stylua", -- Used to format lua code
+			"goimports",
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 

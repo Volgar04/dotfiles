@@ -9,16 +9,16 @@ vim.opt.number = true
 --  Experiment for yourself to see if you like it!
 -- vim.opt.relativenumber = true
 
--- Enable mouse mode, can be useful for resizing splits for example!
-vim.opt.mouse = "a"
+-- Disable mouse
+vim.opt.mouse = ""
 
 -- Don't show the mode, since it's already in status line
 vim.opt.showmode = false
 
 -- Set tab stops
-vim.opt.tabstop = 2
-vim.opt.softtabstop = 2
-vim.opt.shiftwidth = 2
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
 -- Sync clipboard between OS and Neovim.

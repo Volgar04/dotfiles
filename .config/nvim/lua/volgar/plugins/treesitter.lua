@@ -10,6 +10,7 @@ return { -- Highlight, edit, and navigate code
 				"bash",
 				"c",
 				"html",
+				"css",
 				"lua",
 				"markdown",
 				"vim",

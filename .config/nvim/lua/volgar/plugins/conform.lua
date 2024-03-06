@@ -8,6 +8,8 @@ return { -- Autoformat
 		},
 		formatters_by_ft = {
 			lua = { "stylua" },
+			go = { "goimports", "gofmt" },
+			templ = { "templ", "gofmt" },
 			-- Conform can also run multiple formatters sequentially
 			-- python = { "isort", "black" },
 			--

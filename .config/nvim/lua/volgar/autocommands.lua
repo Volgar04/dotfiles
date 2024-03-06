@@ -11,3 +11,9 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 		vim.highlight.on_yank()
 	end,
 })
+
+-- vim.api.nvim_create_autocmd("BufWritePost", {
+-- 	desc = "Stop Go LSP when saving a templ file",
+-- 	pattern = "*.templ",
+-- 	command = "LspStop gopls",
+-- })
