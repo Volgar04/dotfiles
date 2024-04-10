@@ -127,26 +127,5 @@ function flutter-watch(){
   select-pane -t 0 \;
 }
 
-export DB_HOST="localhost"
-export DB_PORT="5432"
-export DB_NAME="verny"
-export DB_USER="postgres"
-export DB_PASSWORD="postgres"
-export DB_SSLMODE="disable"
-
-export DB_HOST_WINE_SITTING_API="localhost"
-export DB_PORT_WINE_SITTING_API="5432"
-export DB_NAME_WINE_SITTING_API="verny"
-export DB_USER_WINE_SITTING_API="postgres"
-export DB_PASSWORD_WINE_SITTING_API="postgres"
-export DB_SSL_MODE_WINE_SITTING_API="disable"
-
-# easy'eat database
-export DB_EASYEAT_HOST="localhost"
-export DB_EASYEAT_PORT="5432"
-export DB_EASYEAT_NAME="easyeat"
-export DB_EASYEAT_USER="postgres"
-export DB_EASYEAT_PASSWORD="postgres"
-export DB_EASYEAT_SSLMODE="disable"
-
 eval "$(zoxide init --cmd cd zsh)"
+export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"

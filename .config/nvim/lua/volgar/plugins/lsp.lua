@@ -46,6 +46,9 @@ return { -- LSP Configuration & Plugins
 				--  Most Language Servers support renaming across files, etc.
 				map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
 
+				-- Restart LSP if needed
+				map("<leader>Rs", vim.lsp.buf.rename, "[R]e[s]tart LSP")
+
 				-- Execute a code action, usually your cursor needs to be on top of an error
 				-- or a suggestion from your LSP for this to activate.
 				map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
@@ -151,6 +154,11 @@ return { -- LSP Configuration & Plugins
 		vim.list_extend(ensure_installed, {
 			"stylua", -- Used to format lua code
 			"goimports",
+			"prettier",
+			"isort",
+			"black",
+			"pylint",
+			"eslint_d",
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 

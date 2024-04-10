@@ -1,5 +1,6 @@
 return { -- Autoformat
 	"stevearc/conform.nvim",
+	event = { "BufReadPre", "BufNewFile" },
 	opts = {
 		notify_on_error = false,
 		format_on_save = {
@@ -10,12 +11,14 @@ return { -- Autoformat
 			lua = { "stylua" },
 			go = { "goimports", "gofmt" },
 			templ = { "templ", "gofmt" },
-			-- Conform can also run multiple formatters sequentially
-			-- python = { "isort", "black" },
-			--
-			-- You can use a sub-list to tell conform to run *until* a formatter
-			-- is found.
-			-- javascript = { { "prettierd", "prettier" } },
+			javascript = { "prettier" },
+			typescript = { "prettier" },
+			css = { "prettier" },
+			html = { "prettier" },
+			json = { "prettier" },
+			yaml = { "prettier" },
+			markdown = { "prettier" },
+			python = { "isort", "black" },
 		},
 	},
 }
