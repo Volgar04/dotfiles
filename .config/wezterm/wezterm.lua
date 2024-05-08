@@ -1,53 +1,20 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
+local mux = wezterm.mux
 local config = {}
 
--- ---------------------- COLORS ----------------------
 config.use_fancy_tab_bar = false
-config.colors = {
-	background = "#f2ecbc",
-	tab_bar = {
-		background = "black",
-		active_tab = {
-			bg_color = "#545465",
-			fg_color = "#f2ecbc",
-			intensity = "Bold",
-			italic = true,
-		},
-		inactive_tab = {
-			bg_color = "#D7CE9E",
-			fg_color = "#a09cac",
-		},
-		inactive_tab_hover = {
-			bg_color = "#545465",
-			fg_color = "#f2ecbc",
-			intensity = "Bold",
-		},
-		new_tab = {
-			bg_color = "#f2ecbc",
-			fg_color = "#545465",
-		},
-		new_tab_hover = {
-			bg_color = "#f2ecbc",
-			fg_color = "#545465",
-			intensity = "Bold",
-		},
-	},
-	ansi = {
-		"#1f1f28",
-		"#c84053",
-		"#cf894e",
-		"#77713f",
-		"#4d699b",
-		"#b35b79",
-		"#597b75",
-		"#545464",
-	},
-}
-
--- ---------------------- FONT ----------------------
 config.font = wezterm.font("JetBrains Mono", { weight = "Bold" })
 config.font_size = 12.3
+config.adjust_window_size_when_changing_font_size = false
+
+config.window_padding = {
+	left = 0,
+	right = 0,
+	bottom = 0,
+}
+
+config.colors = require("./theme")
 
 -- ---------------------- WINDOW ----------------------
 config.window_frame = {
@@ -71,17 +38,17 @@ config.keys = {
 	{ key = "p", mods = "LEADER", action = act.ActivateTabRelative(-1) },
 	{ key = "n", mods = "LEADER", action = act.ActivateTabRelative(1) },
 
-	-- --- WINDOWS ---
+	-- --- WINDOWS/WORKSPACES ---
 	-- Spawn window
 	{ key = "C", mods = "CTRL|SHIFT", action = act.SpawnWindow },
 	-- Activate window relative
 	{ key = "P", mods = "CTRL|SHIFT", action = act.ActivateWindowRelative(-1) },
 	{ key = "N", mods = "CTRL|SHIFT", action = act.ActivateWindowRelative(1) },
-	-- Toggle full screen
+	-- Fuzzy find workspaces
 	{
-		key = "F",
+		key = "S",
 		mods = "CTRL|SHIFT",
-		action = wezterm.action.ToggleFullScreen,
+		action = wezterm.action.ShowLauncherArgs({ flags = "FUZZY|WORKSPACES" }),
 	},
 
 	-- --- PANES ---
@@ -107,26 +74,26 @@ config.keys = {
 		action = act.AdjustPaneSize({ "Up", 5 }),
 	},
 	-- Activate pane direction
-	{
-		key = "h",
-		mods = "CTRL",
-		action = act.ActivatePaneDirection("Left"),
-	},
-	{
-		key = "l",
-		mods = "CTRL",
-		action = act.ActivatePaneDirection("Right"),
-	},
-	{
-		key = "k",
-		mods = "CTRL",
-		action = act.ActivatePaneDirection("Up"),
-	},
-	{
-		key = "j",
-		mods = "CTRL",
-		action = act.ActivatePaneDirection("Down"),
-	},
+	-- {
+	-- 	key = "h",
+	-- 	mods = "CTRL",
+	-- 	action = act.ActivatePaneDirection("Left"),
+	-- },
+	-- {
+	-- 	key = "l",
+	-- 	mods = "CTRL",
+	-- 	action = act.ActivatePaneDirection("Right"),
+	-- },
+	-- {
+	-- 	key = "k",
+	-- 	mods = "CTRL",
+	-- 	action = act.ActivatePaneDirection("Up"),
+	-- },
+	-- {
+	-- 	key = "j",
+	-- 	mods = "CTRL",
+	-- 	action = act.ActivatePaneDirection("Down"),
+	-- },
 	-- Split vertical
 	{
 		key = "_",
@@ -154,5 +121,42 @@ for i = 1, 8 do
 		action = act.ActivateTab(i - 1),
 	})
 end
+
+-- Multiplexing
+config.ssh_domains = {
+	{
+		name = "proximit.io",
+		remote_address = "195.35.24.176",
+		username = "nm",
+	},
+}
+
+wezterm.on("gui-startup", function(cmd)
+	local args = {}
+	if cmd then
+		args = cmd.args
+	end
+
+	local project_dir = wezterm.home_dir .. "/Documents/dev/projets/proximit"
+	local _, build_pane, window = mux.spawn_window({
+		workspace = "proximit",
+		cwd = project_dir,
+		args = args,
+	})
+	local editor_pane = build_pane:split({
+		direction = "Top",
+		size = 0.8,
+		cwd = project_dir,
+	})
+	editor_pane:send_text("nvim .\n")
+	window:gui_window():maximize()
+
+	local _, _, _ = mux.spawn_window({
+		workspace = "automation",
+		args = { "ssh", "vault" },
+	})
+
+	mux.set_active_workspace("proximit")
+end)
 
 return config
