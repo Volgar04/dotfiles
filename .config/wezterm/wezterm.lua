@@ -3,7 +3,6 @@ local act = wezterm.action
 local mux = wezterm.mux
 local config = {}
 
-config.use_fancy_tab_bar = false
 config.font = wezterm.font("JetBrains Mono", { weight = "Bold" })
 config.font_size = 12.3
 config.adjust_window_size_when_changing_font_size = false
@@ -14,14 +13,10 @@ config.window_padding = {
 	bottom = 0,
 }
 
-config.colors = require("./theme")
+config.colors = require("theme")
 
--- ---------------------- WINDOW ----------------------
-config.window_frame = {
-	font = wezterm.font({ family = "Roboto", weight = "Bold" }),
-	font_size = 12.3,
-	active_titlebar_bg = "#000000",
-}
+local tab_bar = require("tab_bar")
+tab_bar.apply_to_config(config)
 
 -- ---------------------- KEYS ----------------------
 config.use_dead_keys = false
