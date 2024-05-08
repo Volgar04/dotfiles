@@ -6,6 +6,11 @@ function module.apply_to_config(config)
 	config.use_dead_keys = false
 	config.leader = { key = "a", mods = "CTRL", timeout_nilliseconds = 1000 }
 	config.keys = {
+		{
+			key = ".",
+			mods = "LEADER",
+			action = wezterm.action.ActivateCommandPalette,
+		},
 		-- --- TABS ---
 		-- Spawn tab
 		{
@@ -25,9 +30,34 @@ function module.apply_to_config(config)
 		{ key = "N", mods = "CTRL|SHIFT", action = act.ActivateWindowRelative(1) },
 		-- Fuzzy find workspaces
 		{
-			key = "S",
-			mods = "CTRL|SHIFT",
+			key = "s",
+			mods = "LEADER",
 			action = wezterm.action.ShowLauncherArgs({ flags = "FUZZY|WORKSPACES" }),
+		},
+		-- Prompt for a name to use for a new workspace and switch to it.
+		{
+			key = "w",
+			mods = "LEADER",
+			action = act.PromptInputLine({
+				description = wezterm.format({
+					{ Attribute = { Intensity = "Bold" } },
+					{ Foreground = { AnsiColor = "Fuchsia" } },
+					{ Text = "Enter name for new workspace" },
+				}),
+				action = wezterm.action_callback(function(window, pane, line)
+					-- line will be `nil` if they hit escape without entering anything
+					-- An empty string if they just hit enter
+					-- Or the actual line of text they wrote
+					if line then
+						window:perform_action(
+							act.SwitchToWorkspace({
+								name = line,
+							}),
+							pane
+						)
+					end
+				end),
+			}),
 		},
 
 		-- --- PANES ---

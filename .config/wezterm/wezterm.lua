@@ -1,5 +1,5 @@
 local wezterm = require("wezterm")
-local mux = wezterm.mux
+local act = wezterm.action
 local config = {}
 
 config.font = wezterm.font("JetBrains Mono", { weight = "Bold" })
@@ -17,23 +17,33 @@ config.colors = require("theme")
 
 local tab_bar = require("tab_bar")
 tab_bar.apply_to_config(config)
+
 local keybinds = require("keybinds")
 keybinds.apply_to_config(config)
-local workspaces = require("workspaces")
 
-wezterm.on("gui-startup", function()
-	workspaces.loadWorkspaces()
+local multiplexing = require("multiplexing")
+multiplexing.apply_to_config(config)
+
+wezterm.on("update-right-status", function(window, _)
+	window:set_right_status(window:active_workspace())
 end)
 
-wezterm.on("save-workspaces", function()
-	local activeWorkspace = mux.get_active_workspace()
-	print(mux.all_windows())
-	for _, window in ipairs(mux.all_windows()) do
-		if window:get_workspace() == activeWorkspace then
-			window:gui_window():toast_notification("(Workspaces)", "Saving workspaces...", nil, 5000)
-		end
-	end
-	workspaces.saveWorkspaces()
+wezterm.on("augment-command-palette", function(_, _)
+	return {
+		{
+			brief = "Rename tab",
+			icon = "md_rename_box",
+
+			action = act.PromptInputLine({
+				description = "Enter new name for tab",
+				action = wezterm.action_callback(function(window, _, line)
+					if line then
+						window:active_tab():set_title(line)
+					end
+				end),
+			}),
+		},
+	}
 end)
 
 return config
