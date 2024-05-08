@@ -83,37 +83,43 @@ function module.apply_to_config(config)
 			action = act.AdjustPaneSize({ "Up", 5 }),
 		},
 		-- Activate pane direction
-		-- {
-		-- 	key = "h",
-		-- 	mods = "CTRL",
-		-- 	action = act.ActivatePaneDirection("Left"),
-		-- },
-		-- {
-		-- 	key = "l",
-		-- 	mods = "CTRL",
-		-- 	action = act.ActivatePaneDirection("Right"),
-		-- },
-		-- {
-		-- 	key = "k",
-		-- 	mods = "CTRL",
-		-- 	action = act.ActivatePaneDirection("Up"),
-		-- },
-		-- {
-		-- 	key = "j",
-		-- 	mods = "CTRL",
-		-- 	action = act.ActivatePaneDirection("Down"),
-		-- },
+		{
+			key = "h",
+			mods = "LEADER",
+			action = act.ActivatePaneDirection("Left"),
+		},
+		{
+			key = "l",
+			mods = "LEADER",
+			action = act.ActivatePaneDirection("Right"),
+		},
+		{
+			key = "k",
+			mods = "LEADER",
+			action = act.ActivatePaneDirection("Up"),
+		},
+		{
+			key = "j",
+			mods = "LEADER",
+			action = act.ActivatePaneDirection("Down"),
+		},
 		-- Split vertical
 		{
-			key = "_",
-			mods = "ALT|SHIFT",
+			key = "-",
+			mods = "LEADER",
 			action = act.SplitVertical({ domain = "CurrentPaneDomain" }),
 		},
 		-- Split horizontal
 		{
 			key = "|",
-			mods = "ALT|SHIFT",
+			mods = "LEADER",
 			action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }),
+		},
+		-- Maximize pane
+		{
+			key = "m",
+			mods = "LEADER",
+			action = act.TogglePaneZoomState,
 		},
 	}
 
