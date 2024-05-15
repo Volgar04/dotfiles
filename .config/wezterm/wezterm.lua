@@ -13,7 +13,8 @@ config.window_padding = {
 	bottom = 0,
 }
 
-config.colors = require("theme")
+config.color_scheme = "Catppuccin Macchiato"
+-- config.colors = require("theme")
 
 local tab_bar = require("tab_bar")
 tab_bar.apply_to_config(config)
