@@ -1,6 +1,6 @@
 local colors = {}
 
-colors.background = "#f2ecbc"
+colors.background = "#1f1f28"
 colors.tab_bar = {
 	background = "black",
 	active_tab = {

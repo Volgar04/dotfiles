@@ -9,9 +9,6 @@ vim.opt.termguicolors = true
 vim.opt.number = true
 vim.opt.relativenumber = true
 
--- Show cursor column line
-vim.opt.cursorcolumn = true
-
 -- Disable mouse
 vim.opt.mouse = ""
 
