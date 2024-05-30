@@ -14,7 +14,7 @@ config.window_padding = {
 }
 
 -- config.colors = require("theme")
-config.color_scheme = "nordfox"
+config.color_scheme = "terafox"
 
 local tab_bar = require("tab_bar")
 tab_bar.apply_to_config(config)

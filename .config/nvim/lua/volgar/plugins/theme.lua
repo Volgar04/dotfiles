@@ -17,6 +17,6 @@ return {
 	config = function()
 		require("nightfox").setup({})
 
-		vim.cmd("colorscheme nordfox")
+		vim.cmd("colorscheme terafox")
 	end,
 }
