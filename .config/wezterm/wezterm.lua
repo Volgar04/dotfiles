@@ -6,15 +6,8 @@ config.font = wezterm.font("JetBrains Mono", { weight = "Bold" })
 config.font_size = 12.3
 config.adjust_window_size_when_changing_font_size = false
 
-config.window_padding = {
-	left = 7,
-	right = 0,
-	top = 7,
-	bottom = 0,
-}
-
--- config.colors = require("theme")
-config.color_scheme = "terafox"
+local settings = require("settings")
+settings.apply_to_config(config)
 
 local tab_bar = require("tab_bar")
 tab_bar.apply_to_config(config)
