@@ -2,8 +2,8 @@ local wezterm = require("wezterm")
 local act = wezterm.action
 local config = {}
 
-config.font = wezterm.font("JetBrains Mono", { weight = "Bold" })
-config.font_size = 12.3
+config.font = wezterm.font("JetBrains Mono")
+config.font_size = 14.5
 config.adjust_window_size_when_changing_font_size = false
 
 local settings = require("settings")
@@ -12,8 +12,8 @@ settings.apply_to_config(config)
 local tab_bar = require("tab_bar")
 tab_bar.apply_to_config(config)
 
-local keybinds = require("keybinds")
-keybinds.apply_to_config(config)
+-- local keybinds = require("keybinds")
+-- keybinds.apply_to_config(config)
 
 local multiplexing = require("multiplexing")
 multiplexing.apply_to_config(config)

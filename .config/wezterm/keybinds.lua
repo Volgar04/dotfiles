@@ -38,7 +38,7 @@ end
 
 function module.apply_to_config(config)
 	config.use_dead_keys = false
-	config.leader = { key = "a", mods = "CTRL", timeout_nilliseconds = 1000 }
+	config.leader = { key = "/", mods = "CTRL", timeout_nilliseconds = 1000 }
 	config.keys = {
 		{
 			key = ".",

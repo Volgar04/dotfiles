@@ -13,6 +13,8 @@ export ANDROID_SDK_ROOT=~/Library/Android/sdk
 export ANDROID_HOME=~/Library/Android/sdk
 export ANDROID_AVD_HOME=~/.android/avd
 
+export JAVA_HOME=$(/usr/libexec/java_home -v 17)
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -129,3 +131,7 @@ function flutter-watch(){
 
 eval "$(zoxide init --cmd cd zsh)"
 export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
+
+# ----- Eza (better ls) -----
+alias ls="eza --icons=always"
+source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
