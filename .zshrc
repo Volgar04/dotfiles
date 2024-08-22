@@ -134,4 +134,8 @@ export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
 
 # ----- Eza (better ls) -----
 alias ls="eza --icons=always"
+
+alias v="nvim ."
+alias c="clear"
+
 source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
