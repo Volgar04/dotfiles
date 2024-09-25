@@ -17,3 +17,14 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 -- 	pattern = "*.templ",
 -- 	command = "LspStop gopls",
 -- })
+
+vim.api.nvim_create_user_command("MyTroubleLikeSplit", function(opts)
+	-- local current_win = vim.api.nvim_get_current_win()
+	vim.cmd("botright 18split")
+	vim.cmd("edit " .. opts.args)
+	vim.cmd("setlocal winfixheight")
+	vim.cmd("setlocal nonumber norelativenumber")
+	vim.cmd("setlocal signcolumn=no")
+	vim.wo.winhl = "Normal:StatusLine"
+	-- vim.api.nvim_set_current_win(current_win)
+end, { nargs = 1 })

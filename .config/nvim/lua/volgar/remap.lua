@@ -18,3 +18,8 @@ vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper win
 
 -- Go error snippet
 vim.keymap.set("n", "<leader>ce", "oif err != nil {<CR>return err<CR>}<ESC>", { desc = "Handle go err != nil" })
+
+vim.keymap.set("n", "<C-d>", "<cmd>resize -5<CR>", { desc = "Decrease height" })
+vim.keymap.set("n", "<C-i>", "<cmd>resize +5<CR>", { desc = "Increase height" })
+vim.keymap.set("n", "<C-m>", "<C-w>T", { desc = "Maximize window" })
+vim.keymap.set("n", "<C-u>", "mAZZ<C-w>S`A", { desc = "Minimize window" })
