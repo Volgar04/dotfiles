@@ -16,6 +16,10 @@ return { -- Highlight, edit, and navigate code
 				"vim",
 				"vimdoc",
 				"dart",
+				"javascript",
+				"typescript",
+				"tsx",
+				"go",
 			},
 			-- Autoinstall languages that are not installed
 			auto_install = true,

@@ -5,6 +5,6 @@ return {
 	config = function()
 		require("nightfox").setup({})
 
-		vim.cmd("colorscheme terafox")
+		vim.cmd("colorscheme dayfox")
 	end,
 }

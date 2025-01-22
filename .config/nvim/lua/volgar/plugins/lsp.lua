@@ -104,12 +104,13 @@ return { -- LSP Configuration & Plugins
 			cmake = {},
 			pyright = {},
 			rust_analyzer = {},
-			tsserver = {},
+			ts_ls = {},
+			eslint = {},
 			html = { filetypes = { "html", "templ" } },
 			htmx = { filetypes = { "html", "templ" } },
 			tailwindcss = {
-				filetypes = { "templ", "astro", "javascript", "typescript", "react" },
-				init_options = { userLanguages = { templ = "templ" } },
+				-- filetypes = { "templ", "astro", "javascript", "typescript", "react" },
+				-- init_options = { userLanguages = { templ = "templ" } },
 			},
 
 			lua_ls = {
@@ -159,6 +160,8 @@ return { -- LSP Configuration & Plugins
 			"black",
 			"pylint",
 			"eslint_d",
+			"typescript-language-server",
+			"tailwindcss-language-server",
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 

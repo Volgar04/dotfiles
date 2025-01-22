@@ -139,3 +139,11 @@ alias v="nvim ."
 alias c="clear"
 
 source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
+
+# pnpm
+export PNPM_HOME="/Users/nicolasmartin/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

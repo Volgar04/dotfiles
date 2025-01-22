@@ -8,7 +8,7 @@ return {
 	config = function()
 		require("nvim-tree").setup({
 			view = {
-				width = 60,
+				width = 80,
 				relativenumber = true,
 			},
 			-- change folder arrow icons
@@ -22,6 +22,7 @@ return {
 			-- window splits
 			actions = {
 				open_file = {
+					quit_on_open = true,
 					window_picker = {
 						enable = false,
 					},

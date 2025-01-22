@@ -1,5 +1,6 @@
 import = [
-    "~/.config/alacritty/terafox.toml"
+    "~/.config/alacritty/dayfox.toml"
+    # "~/.config/alacritty/terafox.toml"
 ]
 
 [env]
@@ -17,10 +18,6 @@ italic = { family = "JetBrainsMono Nerd Font", style = "Italic" }
 bold_italic = { family = "JetBrainsMono Nerd Font", style = "Bold Italic" }
 
 size = 14
-
-[cursor]
-style = { shape = "Underline", blinking = "Never" }
-vi_mode_style = { shape = "Underline", blinking = "Never" }
 
 [mouse]
 hide_when_typing = true
