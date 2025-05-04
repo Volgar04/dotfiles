@@ -5,8 +5,6 @@ TERM = "xterm-256color"
 padding = { x = 0, y = 0 }
 decorations = "Buttonless"
 dynamic_title = false
-opacity = 0.9
-blur = true
 # startup_mode = "Fullscreen"
 
 [font]
