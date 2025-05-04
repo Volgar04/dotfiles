@@ -9,12 +9,11 @@ return {
 		require("flutter-tools").setup({
 			dev_tools = {
 				autostart = true,
-				auto_open_browser = false,
+				auto_open_browser = true,
 			},
 			dev_log = {
-				-- open_cmd = "20 split tabedit",
-				-- open_cmd = "20 split tabedit",
-				open_cmd = "MyTroubleLikeSplit",
+				-- enabled = false,
+				-- open_cmd = "MyTroubleLikeSplit",
 			},
 			lsp = {
 				settings = {

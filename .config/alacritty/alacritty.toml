@@ -1,14 +1,12 @@
-import = [
-    "~/.config/alacritty/dayfox.toml"
-    # "~/.config/alacritty/terafox.toml"
-]
-
 [env]
 TERM = "xterm-256color"
 
 [window]
-padding = { x = 10, y = 10 }
-decorations = "ButtonLess"
+padding = { x = 0, y = 0 }
+decorations = "Buttonless"
+dynamic_title = false
+opacity = 0.9
+blur = true
 # startup_mode = "Fullscreen"
 
 [font]
@@ -16,8 +14,12 @@ normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
 bold = { family = "JetBrainsMono Nerd Font", style = "Bold" }
 italic = { family = "JetBrainsMono Nerd Font", style = "Italic" }
 bold_italic = { family = "JetBrainsMono Nerd Font", style = "Bold Italic" }
-
-size = 14
+size = 14.3
 
 [mouse]
 hide_when_typing = true
+
+[general]
+import = [
+    "~/.config/alacritty/kanagawa-dragon.toml.toml"
+]

@@ -23,9 +23,11 @@ return { -- Collection of various small independent plugins/modules
 		require("mini.pairs").setup()
 
 		-- Highlight trailing space
-		require("mini.trailspace").setup()
+		-- require("mini.trailspace").setup()
 
 		-- Toggle/split if arguments are on single line, join otherwise
 		require("mini.splitjoin").setup()
+
+		-- require("mini.animate").setup()
 	end,
 }
