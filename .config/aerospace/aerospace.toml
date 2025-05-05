@@ -53,9 +53,9 @@ automatically-unhide-macos-hidden-apps = false
 if.app-name-regex-substring = 'whatsapp'
 run = 'layout floating'
 
-[[on-window-detected]]
-if.app-id = 'com.tinyspeck.slackmacgap'
-run = 'layout floating'
+#[[on-window-detected]]
+#if.app-id = 'com.tinyspeck.slackmacgap'
+#run = 'layout floating'
 
 # Possible values: (qwerty|dvorak|colemak)
 # See https://nikitabobko.github.io/AeroSpace/guide#key-mapping
