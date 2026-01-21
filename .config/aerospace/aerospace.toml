@@ -51,16 +51,57 @@ automatically-unhide-macos-hidden-apps = false
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'whatsapp'
+run = [
+    'layout floating',
+    'move-node-to-workspace 8'
+]
+
+[[on-window-detected]]
+if.app-id = 'com.linguifai.app'
+run = [
+    'layout floating',
+    'move-node-to-workspace 7'
+]
+
+[[on-window-detected]]
+if.app-id = 'com.macpaw.CleanMyMac5'
 run = 'layout floating'
 
-#[[on-window-detected]]
-#if.app-id = 'com.tinyspeck.slackmacgap'
-#run = 'layout floating'
+[[on-window-detected]]
+if.app-id = 'com.apple.iphonesimulator'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Music'
+run = [
+    'layout floating',
+    'move-node-to-workspace 9'
+]
+
+[[on-window-detected]]
+if.app-id = 'com.apple.finder'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.iCal'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'linguifai'
+run = [
+    'layout floating',
+    'move-node-to-workspace 7'
+]
 
 # Possible values: (qwerty|dvorak|colemak)
 # See https://nikitabobko.github.io/AeroSpace/guide#key-mapping
 [key-mapping]
     preset = 'qwerty'
+
+[workspace-to-monitor-force-assignment]
+    7 = ["Built-in Retina Display", "(1)"]
+    8 = ["Built-in Retina Display", "(1)"]
+    9 = ["Built-in Retina Display", "(1)"]
 
 # Gaps between windows (inner-*) and between monitor edges (outer-*).
 # Possible values:
@@ -71,12 +112,12 @@ run = 'layout floating'
 #                 See:
 #                 https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
-    inner.horizontal = 8
-    inner.vertical =   8
-    outer.left =       8
-    outer.bottom =     8
-    outer.top =        8
-    outer.right =      8
+    inner.horizontal = 5
+    inner.vertical =   5
+    outer.left =       5
+    outer.bottom =     5
+    outer.top =        5
+    outer.right =      5
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes

@@ -9,7 +9,6 @@ fi
 export PATH=$HOME/bin:/usr/local/bin:$HOME/go/bin:/Users/nicolasmartin/Documents/dev/flutter/bin:$HOME/.pub-cache/bin:$HOME/Library/Android/sdk/emulator/:$PATH
 
 # Android Emulator
-export ANDROID_SDK_ROOT=~/Library/Android/sdk
 export ANDROID_HOME=~/Library/Android/sdk
 export ANDROID_AVD_HOME=~/.android/avd
 
@@ -137,6 +136,7 @@ alias ls="eza --icons=always"
 
 alias v="nvim"
 alias c="clear"
+alias q="exit"
 
 source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 
@@ -147,3 +147,7 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+# ADB
+export PATH="$PATH:/Users/nicolasmartin/Library/Android/sdk/platform-tools"
+

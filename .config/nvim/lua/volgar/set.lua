@@ -10,7 +10,7 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 
 -- Disable mouse
-vim.opt.mouse = ""
+-- vim.opt.mouse = ""
 
 -- Don't show the mode, since it's already in status line
 vim.opt.showmode = false
